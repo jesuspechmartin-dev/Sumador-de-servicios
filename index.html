@@ -288,6 +288,19 @@ onValue(ref(db, 'solicitudes'), function(snap) { solicitudes = snap.val() || {};
 // Ocultar loading y mostrar login cuando Firebase responde
 onValue(ref(db, 'usuarios'), function() {
     document.getElementById('loading-screen').style.display = 'none';
+    var sesionGuardada = sessionStorage.getItem('usuarioActual');
+    if (sesionGuardada) {
+        var u = JSON.parse(sesionGuardada);
+        // Verificar que el usuario sigue existiendo en Firebase
+        var encontrado = Object.values(usuarios).find(function(x) { return x.user === u.user && x.pass === u.pass; });
+        if (encontrado) {
+            usuarioActual = encontrado;
+            mostrarApp();
+            return;
+        } else {
+            sessionStorage.removeItem('usuarioActual');
+        }
+    }
     if (!usuarioActual) document.getElementById('login-wrap').style.display = 'flex';
 }, { onlyOnce: true });
 
@@ -305,6 +318,7 @@ function intentarLogin() {
     var found = Object.values(usuarios).find(function(x) { return x.user === u && x.pass === p; });
     if (!found) { document.getElementById('login-error').style.display = 'block'; return; }
     usuarioActual = found;
+    sessionStorage.setItem('usuarioActual', JSON.stringify(found));
     document.getElementById('login-error').style.display = 'none';
     document.getElementById('inp-user').value = '';
     document.getElementById('inp-pass').value = '';
@@ -331,6 +345,7 @@ function mostrarApp() {
 
 document.getElementById('btn-logout').addEventListener('click', function() {
     usuarioActual = null;
+    sessionStorage.removeItem('usuarioActual');
     document.getElementById('app-wrap').style.display   = 'none';
     document.getElementById('login-wrap').style.display = 'flex';
     ['badge-admin','btn-clear','btn-usuarios','btn-periodos'].forEach(function(id) {
