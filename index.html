@@ -26,7 +26,7 @@
         .loading-screen p { color: #7f8c8d; font-size: 15px; }
 
         /* APP */
-        .app-wrap { display: none; width: 100%; max-width: 860px; }
+        .app-wrap { display: none; width: 100%; max-width: 980px; }
         .topbar { display: flex; justify-content: space-between; align-items: center; background: white; padding: 12px 20px; border-radius: 10px; margin-bottom: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.07); flex-wrap: wrap; gap: 8px; }
         .topbar-left { font-weight: bold; color: #2c3e50; font-size: 15px; }
         .topbar-right { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
@@ -41,18 +41,47 @@
         .periodo-activo-nombre.sin-periodo { background: #fef9e7; border-color: #f39c12; color: #e67e22; }
 
         .container { background: white; padding: 25px 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        .stats-row { display: flex; gap: 15px; margin-bottom: 25px; }
-        .stat-box { flex: 1; padding: 18px; border-radius: 8px; text-align: center; color: white; }
+
+        /* STATS ROW con cuadre */
+        .stats-row { display: flex; gap: 15px; margin-bottom: 25px; flex-wrap: wrap; }
+        .stat-box { flex: 1; min-width: 140px; padding: 18px; border-radius: 8px; text-align: center; color: white; }
         .stat-box.total { background-color: #2ecc71; flex: 2; }
         .stat-box.contador { background-color: #3498db; }
-        .stat-label { font-size: 0.8rem; opacity: 0.9; margin-bottom: 4px; }
-        .stat-value { font-size: 1.8rem; font-weight: bold; line-height: 1; }
-        .stat-box.total .stat-value { font-size: 2rem; }
+        .stat-box.validados { background-color: #27ae60; }
+        .stat-label { font-size: 0.75rem; opacity: 0.9; margin-bottom: 4px; }
+        .stat-value { font-size: 1.6rem; font-weight: bold; line-height: 1; }
+        .stat-box.total .stat-value { font-size: 1.8rem; }
+
+        /* CUADRE DE EFECTIVO */
+        .cuadre-box { background: #f8f9fa; border: 2px solid #bdc3c7; border-radius: 10px; padding: 16px 18px; margin-bottom: 20px; }
+        .cuadre-title { font-weight: bold; color: #2c3e50; font-size: 14px; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; cursor: pointer; user-select: none; }
+        .cuadre-title span { font-size: 11px; color: #7f8c8d; font-weight: normal; }
+        .cuadre-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 8px; margin-bottom: 12px; }
+        .cuadre-denom { display: flex; align-items: center; gap: 6px; background: white; border-radius: 6px; padding: 6px 10px; border: 1px solid #ddd; }
+        .cuadre-denom label { font-size: 12px; font-weight: bold; color: #2c3e50; margin: 0; min-width: 45px; }
+        .cuadre-denom input { width: 60px; padding: 4px 6px; font-size: 13px; border: 1px solid #bdc3c7; border-radius: 4px; outline: none; text-align: center; }
+        .cuadre-denom input:focus { border-color: #2ecc71; }
+        .cuadre-resultado { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; padding-top: 10px; border-top: 1px solid #ddd; }
+        .cuadre-total-box { flex: 1; min-width: 160px; background: white; border-radius: 8px; padding: 10px 14px; border: 2px solid #bdc3c7; text-align: center; }
+        .cuadre-total-box .ct-label { font-size: 11px; color: #7f8c8d; font-weight: bold; }
+        .cuadre-total-box .ct-value { font-size: 1.3rem; font-weight: bold; color: #2c3e50; }
+        .cuadre-diff-box { flex: 1; min-width: 160px; border-radius: 8px; padding: 10px 14px; text-align: center; }
+        .cuadre-diff-box .ct-label { font-size: 11px; font-weight: bold; opacity: 0.85; }
+        .cuadre-diff-box .ct-value { font-size: 1.3rem; font-weight: bold; }
+        .cuadre-diff-box.ok { background: #eafaf1; border: 2px solid #2ecc71; color: #1e8449; }
+        .cuadre-diff-box.err { background: #fdecea; border: 2px solid #e74c3c; color: #c0392b; }
+        .cuadre-diff-box.neutral { background: #f8f9fa; border: 2px solid #bdc3c7; color: #7f8c8d; }
+        .btn-limpiar-cuadre { padding: 8px 14px; background: #95a5a6; color: white; border: none; border-radius: 6px; font-size: 12px; font-weight: bold; cursor: pointer; }
+        .btn-limpiar-cuadre:hover { background: #7f8c8d; }
 
         .input-group { margin-bottom: 20px; }
         label { display: block; margin-bottom: 8px; font-weight: bold; color: #34495e; }
         input[type="text"] { width: 100%; padding: 12px; font-size: 16px; border: 2px solid #bdc3c7; border-radius: 6px; outline: none; transition: border-color 0.3s; }
         input[type="text"]:focus { border-color: #2ecc71; }
+
+        /* Modo validación */
+        .modo-validacion-banner { display: none; background: #fef9e7; border: 2px solid #f39c12; border-radius: 8px; padding: 10px 16px; margin-bottom: 14px; font-size: 13px; font-weight: bold; color: #e67e22; text-align: center; }
+        .modo-validacion-banner.activo { display: block; }
 
         .action-buttons { margin-bottom: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
         .btn { padding: 10px 16px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold; border: none; color: white; }
@@ -64,21 +93,28 @@
         .btn-usuarios:hover { background-color: #d35400; }
         .btn-periodos { background-color: #8e44ad; }
         .btn-periodos:hover { background-color: #7d3c98; }
+        .btn-validar  { background-color: #16a085; }
+        .btn-validar:hover  { background-color: #1abc9c; }
 
         .filtros-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
         .filtros-row label { margin: 0; font-size: 13px; white-space: nowrap; font-weight: bold; color: #34495e; }
         .filtros-row select { padding: 7px 10px; border: 2px solid #bdc3c7; border-radius: 6px; font-size: 13px; outline: none; }
 
         table { width: 100%; border-collapse: collapse; margin-top: 6px; }
-        th, td { padding: 10px 11px; text-align: left; border-bottom: 1px solid #ddd; }
+        th, td { padding: 9px 10px; text-align: left; border-bottom: 1px solid #ddd; }
         th { background-color: #f8f9fa; color: #34495e; font-size: 12px; }
         .txt-monto { font-weight: bold; }
         .txt-fecha { color: #7f8c8d; font-size: 12px; }
         .empty-msg { text-align: center; color: #aaa; padding: 20px; font-size: 14px; }
         .btn-del { background: none; border: none; cursor: pointer; color: #e74c3c; font-size: 17px; padding: 2px 6px; border-radius: 4px; }
         .btn-del:hover { background-color: #fdecea; }
-        .chip-user { display: inline-block; background: #eaf4fd; color: #2980b9; padding: 2px 9px; border-radius: 12px; font-size: 11px; font-weight: bold; }
-        .chip-periodo { display: inline-block; background: #f5eef8; color: #8e44ad; padding: 2px 9px; border-radius: 12px; font-size: 11px; font-weight: bold; }
+        .chip-user { display: inline-block; background: #eaf4fd; color: #2980b9; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; }
+        .chip-periodo { display: inline-block; background: #f5eef8; color: #8e44ad; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; }
+
+        /* Chips de validación */
+        .chip-pendiente { display: inline-block; background: #fef9e7; color: #e67e22; border: 1px solid #f39c12; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; }
+        .chip-validado  { display: inline-block; background: #eafaf1; color: #1e8449; border: 1px solid #2ecc71; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; }
+        .chip-error-val { display: inline-block; background: #fdecea; color: #c0392b; border: 1px solid #e74c3c; padding: 2px 8px; border-radius: 12px; font-size: 11px; font-weight: bold; }
 
         /* Modales */
         .modal-bg { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.45); z-index: 1000; justify-content: center; align-items: center; }
@@ -108,11 +144,12 @@
 
         .solicitud-row { background: #fef9e7; border: 1px solid #f39c12; border-radius: 6px; padding: 10px 12px; margin-bottom: 8px; font-size: 13px; }
         .solicitud-row .sol-info { color: #555; margin-bottom: 6px; }
-        .solicitud-row .sol-btns { display: flex; gap: 8px; }
+        .solicitud-row .sol-btns { display: flex; gap: 8px; margin-top: 6px; }
         .btn-aprobar  { background: #2ecc71; border: none; color: white; font-size: 12px; font-weight: bold; padding: 4px 12px; border-radius: 4px; cursor: pointer; }
         .btn-rechazar { background: #e74c3c; border: none; color: white; font-size: 12px; font-weight: bold; padding: 4px 12px; border-radius: 4px; cursor: pointer; }
+        .btn-autorizar-val { background: #16a085; border: none; color: white; font-size: 11px; font-weight: bold; padding: 4px 10px; border-radius: 4px; cursor: pointer; }
 
-        .tab-btns { display: flex; gap: 6px; margin-bottom: 14px; }
+        .tab-btns { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
         .tab-btn { padding: 7px 14px; border: 2px solid #bdc3c7; background: white; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: bold; color: #7f8c8d; }
         .tab-btn.activo { background: #8e44ad; color: white; border-color: #8e44ad; }
 
@@ -125,7 +162,6 @@
 </head>
 <body>
 
-<!-- LOADING -->
 <div class="loading-screen" id="loading-screen">
     <div class="spinner"></div>
     <p>Conectando con Firebase...</p>
@@ -164,34 +200,81 @@
     </div>
 
     <div class="container">
+        <!-- STATS -->
         <div class="stats-row">
             <div class="stat-box total">
-                <div class="stat-label">Total acumulado</div>
+                <div class="stat-label">Total acumulado (validados)</div>
                 <div class="stat-value">$<span id="gran-total">0.00</span> MXN</div>
             </div>
             <div class="stat-box contador">
-                <div class="stat-label">Recibos</div>
+                <div class="stat-label">Total recibos</div>
                 <div class="stat-value" id="contador">0</div>
+            </div>
+            <div class="stat-box validados">
+                <div class="stat-label">Validados ✅</div>
+                <div class="stat-value" id="contador-validados">0</div>
             </div>
         </div>
 
+        <!-- CUADRE DE EFECTIVO -->
+        <div class="cuadre-box" id="cuadre-box">
+            <div class="cuadre-title" id="cuadre-title">
+                💵 Cuadre de Efectivo <span id="cuadre-toggle-txt">(clic para expandir)</span>
+            </div>
+            <div id="cuadre-contenido" style="display:none;">
+                <div class="cuadre-grid" id="cuadre-grid"></div>
+                <div class="cuadre-resultado">
+                    <div class="cuadre-total-box">
+                        <div class="ct-label">EFECTIVO CONTADO</div>
+                        <div class="ct-value" id="cuadre-efectivo">$0.00</div>
+                    </div>
+                    <div class="cuadre-total-box">
+                        <div class="ct-label">TOTAL RECIBOS</div>
+                        <div class="ct-value" id="cuadre-recibos-val">$0.00</div>
+                    </div>
+                    <div class="cuadre-diff-box neutral" id="cuadre-diff-box">
+                        <div class="ct-label">DIFERENCIA</div>
+                        <div class="ct-value" id="cuadre-diff">$0.00</div>
+                    </div>
+                    <button class="btn-limpiar-cuadre" id="btn-limpiar-cuadre">Limpiar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MODO VALIDACIÓN -->
+        <div class="modo-validacion-banner" id="modo-val-banner">
+            ✔ Modo validación activo — escanea el mismo código para confirmar
+            <button style="margin-left:12px;padding:4px 10px;background:#e74c3c;color:white;border:none;border-radius:4px;cursor:pointer;font-size:12px;" id="btn-salir-validacion">Salir</button>
+        </div>
+
+        <!-- INPUT -->
         <div class="input-group">
             <label for="lector-input">Escanea el código de barras aquí:</label>
             <input type="text" id="lector-input" placeholder="Esperando lectura del escáner..." autocomplete="off">
         </div>
 
+        <!-- BOTONES -->
         <div class="action-buttons">
             <button class="btn btn-export"   id="btn-export">Exportar CSV</button>
+            <button class="btn btn-validar"  id="btn-validar" style="display:none;">Modo Validación</button>
             <button class="btn btn-periodos" id="btn-periodos" style="display:none;">Gestionar Períodos</button>
             <button class="btn btn-usuarios" id="btn-usuarios" style="display:none;">Gestionar Usuarios</button>
             <button class="btn btn-clear"    id="btn-clear"    style="display:none;">Limpiar Todo</button>
         </div>
 
+        <!-- FILTROS -->
         <div class="filtros-row">
             <label>Período:</label>
             <select id="filtro-periodo"><option value="">Todos los períodos</option></select>
             <label>Usuario:</label>
             <select id="filtro-usuario"><option value="">Todos los usuarios</option></select>
+            <label>Estado:</label>
+            <select id="filtro-estado">
+                <option value="">Todos</option>
+                <option value="pendiente">Pendiente</option>
+                <option value="validado">Validado ✅</option>
+                <option value="error">Error ⚠️</option>
+            </select>
         </div>
 
         <h3 style="margin:0 0 8px;">Historial de Escaneos</h3>
@@ -199,7 +282,8 @@
             <thead>
                 <tr>
                     <th>#</th><th>Período</th><th>Usuario</th>
-                    <th>Fecha/Hora</th><th>No. Servicio</th><th>Monto</th><th></th>
+                    <th>Fecha/Hora</th><th>No. Servicio</th><th>Monto</th>
+                    <th>Validación</th><th>Validado por</th><th></th>
                 </tr>
             </thead>
             <tbody id="lista-escaneos"></tbody>
@@ -213,7 +297,7 @@
         <h3>📅 Gestionar Períodos</h3>
         <div class="tab-btns">
             <button class="tab-btn activo" onclick="mostrarTab('periodos')">Períodos</button>
-            <button class="tab-btn" id="tab-sol-btn" onclick="mostrarTab('solicitudes')">Solicitudes <span id="sol-count-badge"></span></button>
+            <button class="tab-btn" onclick="mostrarTab('solicitudes')">Solicitudes <span id="sol-count-badge"></span></button>
         </div>
         <div id="tab-periodos">
             <input type="text" id="np-nombre" placeholder="Nombre del período (ej. FEB 26 - ABR 26)">
@@ -244,7 +328,6 @@
     </div>
 </div>
 
-<!-- Firebase SDK -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import { getDatabase, ref, set, push, onValue, remove, update }
@@ -263,55 +346,47 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db  = getDatabase(app);
 
-// ── ESTADO LOCAL (espejo de Firebase) ────────────────────────────────
 var usuarios    = {};
 var periodos    = {};
 var historial   = {};
 var solicitudes = {};
-var usuarioActual = null;
+var usuarioActual       = null;
+var modoValidacion      = false;
 var temporizadorLectura, temporizadorNotif;
 
-// ── NOTIF ─────────────────────────────────────────────────────────────
+const DENOMINACIONES = [1000, 500, 200, 100, 50, 20, 10, 5, 2, 1];
+
+// ── NOTIF ──────────────────────────────────────────────────────────────
 function mostrarNotif(msg, tipo) {
     var n = document.getElementById('notif');
     n.textContent = msg; n.className = 'notif ' + tipo; n.style.display = 'block';
     clearTimeout(temporizadorNotif);
-    temporizadorNotif = setTimeout(function() { n.style.display = 'none'; }, 3800);
+    temporizadorNotif = setTimeout(function() { n.style.display = 'none'; }, 4000);
 }
 
-// ── ESCUCHAR FIREBASE EN TIEMPO REAL ──────────────────────────────────
-onValue(ref(db, 'usuarios'),    function(snap) { usuarios    = snap.val() || {}; });
-onValue(ref(db, 'periodos'),    function(snap) { periodos    = snap.val() || {}; actualizarBannerPeriodo(); actualizarFiltros(); actualizarInterfaz(); });
-onValue(ref(db, 'historial'),   function(snap) { historial   = snap.val() || {}; actualizarFiltros(); actualizarInterfaz(); });
-onValue(ref(db, 'solicitudes'), function(snap) { solicitudes = snap.val() || {}; actualizarBannerPeriodo(); });
+// ── FIREBASE LISTENERS ─────────────────────────────────────────────────
+onValue(ref(db, 'usuarios'),    function(s) { usuarios    = s.val() || {}; });
+onValue(ref(db, 'periodos'),    function(s) { periodos    = s.val() || {}; actualizarBannerPeriodo(); actualizarFiltros(); actualizarInterfaz(); renderListaPeriodos(); });
+onValue(ref(db, 'historial'),   function(s) { historial   = s.val() || {}; actualizarFiltros(); actualizarInterfaz(); actualizarCuadre(); });
+onValue(ref(db, 'solicitudes'), function(s) { solicitudes = s.val() || {}; actualizarBannerPeriodo(); });
 
-// Ocultar loading y mostrar login cuando Firebase responde
 onValue(ref(db, 'usuarios'), function() {
     document.getElementById('loading-screen').style.display = 'none';
-    var sesionGuardada = sessionStorage.getItem('usuarioActual');
-    if (sesionGuardada) {
-        var u = JSON.parse(sesionGuardada);
-        // Verificar que el usuario sigue existiendo en Firebase
+    var sesion = sessionStorage.getItem('usuarioActual');
+    if (sesion) {
+        var u = JSON.parse(sesion);
         var encontrado = Object.values(usuarios).find(function(x) { return x.user === u.user && x.pass === u.pass; });
-        if (encontrado) {
-            usuarioActual = encontrado;
-            mostrarApp();
-            return;
-        } else {
-            sessionStorage.removeItem('usuarioActual');
-        }
+        if (encontrado) { usuarioActual = encontrado; mostrarApp(); return; }
+        else sessionStorage.removeItem('usuarioActual');
     }
     if (!usuarioActual) document.getElementById('login-wrap').style.display = 'flex';
 }, { onlyOnce: true });
 
-// Crear admin por defecto si no existe
-onValue(ref(db, 'usuarios/admin'), function(snap) {
-    if (!snap.val()) {
-        set(ref(db, 'usuarios/admin'), { user: 'admin', pass: 'admin', esAdmin: true });
-    }
+onValue(ref(db, 'usuarios/admin'), function(s) {
+    if (!s.val()) set(ref(db, 'usuarios/admin'), { user: 'admin', pass: 'admin', esAdmin: true, puedeValidar: true });
 }, { onlyOnce: true });
 
-// ── LOGIN ─────────────────────────────────────────────────────────────
+// ── LOGIN ──────────────────────────────────────────────────────────────
 function intentarLogin() {
     var u = document.getElementById('inp-user').value.trim();
     var p = document.getElementById('inp-pass').value;
@@ -324,7 +399,6 @@ function intentarLogin() {
     document.getElementById('inp-pass').value = '';
     mostrarApp();
 }
-
 document.getElementById('btn-login').addEventListener('click', intentarLogin);
 document.getElementById('inp-pass').addEventListener('keyup', function(e) { if (e.key === 'Enter') intentarLogin(); });
 
@@ -337,6 +411,10 @@ function mostrarApp() {
             document.getElementById(id).style.display = 'inline-block';
         });
     }
+    if (usuarioActual.puedeValidar || usuarioActual.esAdmin) {
+        document.getElementById('btn-validar').style.display = 'inline-block';
+    }
+    construirCuadreGrid();
     actualizarBannerPeriodo();
     actualizarFiltros();
     actualizarInterfaz();
@@ -344,137 +422,173 @@ function mostrarApp() {
 }
 
 document.getElementById('btn-logout').addEventListener('click', function() {
-    usuarioActual = null;
+    usuarioActual = null; modoValidacion = false;
     sessionStorage.removeItem('usuarioActual');
     document.getElementById('app-wrap').style.display   = 'none';
     document.getElementById('login-wrap').style.display = 'flex';
-    ['badge-admin','btn-clear','btn-usuarios','btn-periodos'].forEach(function(id) {
+    ['badge-admin','btn-clear','btn-usuarios','btn-periodos','btn-validar'].forEach(function(id) {
         document.getElementById(id).style.display = 'none';
     });
 });
 
-// ── PERÍODO ACTIVO ────────────────────────────────────────────────────
+// ── PERÍODO ACTIVO ─────────────────────────────────────────────────────
 function getPeriodoActivo() {
     return Object.values(periodos).find(function(p) { return p.abierto; }) || null;
 }
-
 function actualizarBannerPeriodo() {
     var p  = getPeriodoActivo();
     var el = document.getElementById('periodo-activo-nombre');
-    if (p) {
-        el.textContent = p.nombre;
-        el.className   = 'periodo-activo-nombre';
-    } else {
-        el.textContent = 'Sin período activo';
-        el.className   = 'periodo-activo-nombre sin-periodo';
-    }
-    var pendientes = Object.values(solicitudes).filter(function(s) { return s.estado === 'pendiente'; });
+    el.textContent = p ? p.nombre : 'Sin período activo';
+    el.className   = 'periodo-activo-nombre' + (p ? '' : ' sin-periodo');
+    var pend = Object.values(solicitudes).filter(function(s) { return s.estado === 'pendiente'; });
     var badge = document.getElementById('sol-pendientes-badge');
-    if (usuarioActual && usuarioActual.esAdmin && pendientes.length > 0) {
-        badge.textContent    = pendientes.length + ' solicitud(es) pendiente(s)';
-        badge.style.display  = 'inline-block';
-    } else {
-        badge.style.display  = 'none';
-    }
+    if (usuarioActual && usuarioActual.esAdmin && pend.length > 0) {
+        badge.textContent = pend.length + ' solicitud(es) pendiente(s)';
+        badge.style.display = 'inline-block';
+    } else { badge.style.display = 'none'; }
 }
 
-// ── FOCO ──────────────────────────────────────────────────────────────
+// ── MODO VALIDACIÓN ────────────────────────────────────────────────────
+document.getElementById('btn-validar').addEventListener('click', function() {
+    modoValidacion = true;
+    document.getElementById('modo-val-banner').classList.add('activo');
+    mostrarNotif('✔ Modo validación activado — escanea el recibo a confirmar', 'warning');
+    document.getElementById('lector-input').focus();
+});
+document.getElementById('btn-salir-validacion').addEventListener('click', function() {
+    modoValidacion = false;
+    document.getElementById('modo-val-banner').classList.remove('activo');
+    mostrarNotif('Modo validación desactivado', 'warning');
+});
+
+// ── FOCO ───────────────────────────────────────────────────────────────
 var inputLector = document.getElementById('lector-input');
 document.addEventListener('click', function(e) {
     if (!usuarioActual) return;
     if (document.getElementById('modal-periodos').classList.contains('activo')) return;
     if (document.getElementById('modal-usuarios').classList.contains('activo')) return;
-    var clases = ['btn-del','btn-del-item','btn-cerrar-periodo','btn-activar-periodo','btn-aprobar','btn-rechazar','tab-btn','btn-login'];
-    var ids    = ['btn-export','btn-clear','btn-usuarios','btn-periodos','btn-logout','filtro-periodo','filtro-usuario'];
-    if (!clases.some(function(c){ return e.target.classList.contains(c); }) && ids.indexOf(e.target.id) === -1) {
+    var clases = ['btn-del','btn-del-item','btn-cerrar-periodo','btn-activar-periodo',
+                  'btn-aprobar','btn-rechazar','tab-btn','btn-login','btn-limpiar-cuadre',
+                  'btn-salir-validacion','btn-autorizar-val'];
+    var ids    = ['btn-export','btn-clear','btn-usuarios','btn-periodos','btn-logout',
+                  'filtro-periodo','filtro-usuario','filtro-estado','btn-validar','cuadre-title'];
+    if (!clases.some(function(c){ return e.target.classList.contains(c); }) &&
+        ids.indexOf(e.target.id) === -1 &&
+        !e.target.closest('.cuadre-denom')) {
         inputLector.focus();
     }
 });
 
-// ── ESCÁNER ───────────────────────────────────────────────────────────
+// ── ESCÁNER ────────────────────────────────────────────────────────────
 inputLector.addEventListener('keyup', function() {
     clearTimeout(temporizadorLectura);
     temporizadorLectura = setTimeout(function() {
         var codigo = inputLector.value.trim();
-        if (codigo.length >= 10) { procesarCodigo(codigo); inputLector.value = ''; }
+        if (codigo.length >= 10) {
+            if (modoValidacion) { procesarValidacion(codigo); }
+            else { procesarCodigo(codigo); }
+            inputLector.value = '';
+        }
     }, 500);
 });
 
 function procesarCodigo(codigo) {
     var p = getPeriodoActivo();
-    if (!p) { mostrarNotif('⚠️ No hay período activo. El admin debe crear uno.', 'warning'); return; }
-
-    var duplicado = Object.values(historial).find(function(item) { return item.codigo === codigo; });
-    if (duplicado) {
-        var pDup = Object.values(periodos).find(function(x) { return x.id === duplicado.periodoId; });
-        mostrarNotif('⚠️ Recibo ya registrado en "' + (pDup ? pDup.nombre : '?') + '" por ' + duplicado.usuario +
-            ' — No. Servicio: ' + duplicado.codigo.substring(2,14) + ' ($' + duplicado.monto.toFixed(2) + ' MXN)', 'error');
+    if (!p) { mostrarNotif('⚠️ No hay período activo.', 'warning'); return; }
+    var dup = Object.values(historial).find(function(item) { return item.codigo === codigo; });
+    if (dup) {
+        var pDup = Object.values(periodos).find(function(x) { return x.id === dup.periodoId; });
+        mostrarNotif('⚠️ Recibo ya registrado en "' + (pDup ? pDup.nombre : '?') + '" por ' + dup.usuario +
+            ' — No. Serv: ' + dup.codigo.substring(2,14) + ' ($' + dup.monto.toFixed(2) + ')', 'error');
         return;
     }
-
-    var seccionFinal = codigo.slice(-10);
-    var monto = parseInt(seccionFinal.substring(0, seccionFinal.length - 1), 10);
+    var monto = parseInt(codigo.slice(-10).substring(0, 9), 10);
     if (isNaN(monto) || monto === 0) { mostrarNotif('❌ No se pudo extraer el monto.', 'error'); return; }
-
     var ahora = new Date();
     var fecha = ahora.toLocaleDateString('es-MX', { day:'2-digit', month:'2-digit', year:'numeric' })
               + ' ' + ahora.toLocaleTimeString('es-MX', { hour12: false });
-
     var nuevoRef = push(ref(db, 'historial'));
-    set(nuevoRef, { fecha: fecha, codigo: codigo, monto: monto, usuario: usuarioActual.user, periodoId: p.id });
-    mostrarNotif('✅ [' + p.nombre + '] No. Servicio: ' + codigo.substring(2,14) + ' — $' + monto.toFixed(2) + ' MXN', 'success');
+    set(nuevoRef, { fecha: fecha, codigo: codigo, monto: monto, usuario: usuarioActual.user, periodoId: p.id, validacion: 'pendiente', validadoPor: '' });
+    mostrarNotif('✅ [' + p.nombre + '] No. Serv: ' + codigo.substring(2,14) + ' — $' + monto.toFixed(2) + ' MXN registrado', 'success');
 }
 
-// ── FILTROS ───────────────────────────────────────────────────────────
+function procesarValidacion(codigo) {
+    var entradas = Object.entries(historial);
+    var match = entradas.find(function(e) { return e[1].codigo === codigo; });
+    if (!match) {
+        mostrarNotif('⚠️ Este código no está en el historial. Escanéalo primero en modo normal.', 'warning');
+        return;
+    }
+    var key  = match[0];
+    var item = match[1];
+    if (item.validacion === 'validado') {
+        mostrarNotif('ℹ️ Este recibo ya fue validado por ' + item.validadoPor, 'warning');
+        return;
+    }
+    // Calcular monto del escaneo de validación (mismo código = mismo monto)
+    var montoVal = parseInt(codigo.slice(-10).substring(0, 9), 10);
+    var estado   = (montoVal === item.monto) ? 'validado' : 'error';
+    update(ref(db, 'historial/' + key), { validacion: estado, validadoPor: usuarioActual.user });
+    if (estado === 'validado') {
+        mostrarNotif('✅ Recibo ' + item.codigo.substring(2,14) + ' VALIDADO correctamente por ' + usuarioActual.user, 'success');
+    } else {
+        mostrarNotif('⚠️ ERROR de validación — montos no coinciden en No. Serv: ' + item.codigo.substring(2,14), 'error');
+    }
+}
+
+// ── FILTROS ────────────────────────────────────────────────────────────
 function actualizarFiltros() {
-    var selP = document.getElementById('filtro-periodo');
-    var valP = selP.value;
+    var selP = document.getElementById('filtro-periodo'), valP = selP.value;
     selP.innerHTML = '<option value="">Todos los períodos</option>';
     Object.values(periodos).forEach(function(p) {
-        var opt = document.createElement('option');
-        opt.value = p.id; opt.textContent = p.nombre + (p.abierto ? ' ✓' : '');
-        selP.appendChild(opt);
+        var o = document.createElement('option');
+        o.value = p.id; o.textContent = p.nombre + (p.abierto ? ' ✓' : '');
+        selP.appendChild(o);
     });
     selP.value = valP;
 
-    var selU = document.getElementById('filtro-usuario');
-    var valU = selU.value;
+    var selU = document.getElementById('filtro-usuario'), valU = selU.value;
     selU.innerHTML = '<option value="">Todos los usuarios</option>';
-    var vistos = {};
+    var vis = {};
     Object.values(historial).forEach(function(item) {
-        if (!vistos[item.usuario]) {
-            vistos[item.usuario] = true;
-            var opt = document.createElement('option');
-            opt.value = item.usuario; opt.textContent = item.usuario;
-            selU.appendChild(opt);
+        if (!vis[item.usuario]) {
+            vis[item.usuario] = true;
+            var o = document.createElement('option');
+            o.value = item.usuario; o.textContent = item.usuario;
+            selU.appendChild(o);
         }
     });
     selU.value = valU;
 }
 
-document.getElementById('filtro-periodo').addEventListener('change', actualizarInterfaz);
-document.getElementById('filtro-usuario').addEventListener('change', actualizarInterfaz);
+['filtro-periodo','filtro-usuario','filtro-estado'].forEach(function(id) {
+    document.getElementById(id).addEventListener('change', actualizarInterfaz);
+});
 
-// ── TABLA ─────────────────────────────────────────────────────────────
+// ── TABLA ──────────────────────────────────────────────────────────────
 function actualizarInterfaz() {
     if (!usuarioActual) return;
     var tbody     = document.getElementById('lista-escaneos');
     var filtroPer = document.getElementById('filtro-periodo').value;
     var filtroUsr = document.getElementById('filtro-usuario').value;
+    var filtroEst = document.getElementById('filtro-estado').value;
 
     var lista = Object.entries(historial).filter(function(e) {
-        var item = e[1];
-        return (filtroPer === '' || item.periodoId === filtroPer) &&
-               (filtroUsr === '' || item.usuario   === filtroUsr);
+        var i = e[1];
+        return (filtroPer === '' || i.periodoId === filtroPer) &&
+               (filtroUsr === '' || i.usuario   === filtroUsr) &&
+               (filtroEst === '' || (i.validacion || 'pendiente') === filtroEst);
     }).reverse();
 
     tbody.innerHTML = '';
-    var total = 0;
+    var total = 0, totalVal = 0, countVal = 0;
 
     if (lista.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="7" class="empty-msg">Sin escaneos aún</td></tr>';
-        document.getElementById('gran-total').textContent = '0.00';
-        document.getElementById('contador').textContent   = '0';
+        tbody.innerHTML = '<tr><td colspan="9" class="empty-msg">Sin escaneos aún</td></tr>';
+        document.getElementById('gran-total').textContent          = '0.00';
+        document.getElementById('contador').textContent            = '0';
+        document.getElementById('contador-validados').textContent  = '0';
+        actualizarCuadre();
         return;
     }
 
@@ -482,19 +596,27 @@ function actualizarInterfaz() {
         var key  = entry[0];
         var item = entry[1];
         total += item.monto;
+        var valState = item.validacion || 'pendiente';
+        if (valState === 'validado') { totalVal += item.monto; countVal++; }
+
         var per = Object.values(periodos).find(function(p) { return p.id === item.periodoId; });
-        var perNombre  = per ? per.nombre : '—';
-        var esCerrado  = per && !per.abierto;
-        var esAdmin    = usuarioActual.esAdmin;
-        var esPropio   = item.usuario === usuarioActual.user;
+        var perNombre = per ? per.nombre : '—';
+        var esCerrado = per && !per.abierto;
+        var esAdmin   = usuarioActual.esAdmin;
+        var esPropio  = item.usuario === usuarioActual.user;
+
+        var chipVal = '';
+        if (valState === 'validado')  chipVal = '<span class="chip-validado">✅ Validado</span>';
+        else if (valState === 'error') chipVal = '<span class="chip-error-val">⚠️ Error</span>';
+        else                           chipVal = '<span class="chip-pendiente">⏳ Pendiente</span>';
 
         var delBtn = '';
         if (esAdmin) {
-            delBtn = '<button class="btn-del" data-key="' + key + '" title="Eliminar">✕</button>';
-        } else if (esPropio && esCerrado) {
-            delBtn = '<button class="btn-del btn-solicitar-edit" data-key="' + key + '" data-periodo="' + perNombre + '" title="Solicitar eliminación" style="color:#e67e22;">✎</button>';
+            delBtn = '<button class="btn-del" data-key="' + key + '">✕</button>';
         } else if (esPropio && !esCerrado) {
-            delBtn = '<button class="btn-del" data-key="' + key + '" title="Eliminar">✕</button>';
+            delBtn = '<button class="btn-del" data-key="' + key + '">✕</button>';
+        } else if (esPropio && esCerrado) {
+            delBtn = '<button class="btn-del btn-solicitar-edit" data-key="' + key + '" data-periodo="' + perNombre + '" style="color:#e67e22;">✎</button>';
         }
 
         var fila = document.createElement('tr');
@@ -505,20 +627,23 @@ function actualizarInterfaz() {
             '<td class="txt-fecha">' + item.fecha + '</td>' +
             '<td style="font-family:monospace;font-size:12px;">' + item.codigo.substring(2,14) + '</td>' +
             '<td class="txt-monto">$' + item.monto.toFixed(2) + '</td>' +
+            '<td>' + chipVal + '</td>' +
+            '<td style="font-size:11px;color:#7f8c8d;">' + (item.validadoPor || '—') + '</td>' +
             '<td>' + delBtn + '</td>';
         tbody.appendChild(fila);
     });
 
-    document.getElementById('gran-total').textContent = total.toFixed(2);
-    document.getElementById('contador').textContent   = lista.length;
+    document.getElementById('gran-total').textContent         = totalVal.toFixed(2);
+    document.getElementById('contador').textContent           = lista.length;
+    document.getElementById('contador-validados').textContent = countVal;
+    actualizarCuadre(totalVal);
 
     tbody.querySelectorAll('.btn-del').forEach(function(btn) {
         btn.addEventListener('click', function(e) {
             e.stopPropagation();
             var k = btn.getAttribute('data-key');
             if (btn.classList.contains('btn-solicitar-edit')) {
-                var pN = btn.getAttribute('data-periodo');
-                setTimeout(function() { crearSolicitud(k, pN); }, 50);
+                setTimeout(function() { crearSolicitud(k, btn.getAttribute('data-periodo')); }, 50);
             } else {
                 setTimeout(function() {
                     if (confirm('¿Eliminar este recibo?')) {
@@ -532,36 +657,84 @@ function actualizarInterfaz() {
     });
 }
 
-// ── SOLICITUDES ───────────────────────────────────────────────────────
+// ── CUADRE DE EFECTIVO ─────────────────────────────────────────────────
+function construirCuadreGrid() {
+    var grid = document.getElementById('cuadre-grid');
+    grid.innerHTML = '';
+    DENOMINACIONES.forEach(function(d) {
+        var div = document.createElement('div');
+        div.className = 'cuadre-denom';
+        div.innerHTML = '<label>$' + d.toLocaleString() + '</label>' +
+            '<input type="number" min="0" value="0" id="denom-' + d + '" placeholder="0">';
+        grid.appendChild(div);
+        div.querySelector('input').addEventListener('input', function() { actualizarCuadre(); });
+    });
+}
+
+function actualizarCuadre(totalVal) {
+    if (totalVal === undefined) {
+        var tv = 0;
+        Object.values(historial).forEach(function(item) {
+            if ((item.validacion || 'pendiente') === 'validado') tv += item.monto;
+        });
+        totalVal = tv;
+    }
+    var efectivo = 0;
+    DENOMINACIONES.forEach(function(d) {
+        var inp = document.getElementById('denom-' + d);
+        if (inp) efectivo += (parseInt(inp.value, 10) || 0) * d;
+    });
+    var diff = efectivo - totalVal;
+    document.getElementById('cuadre-efectivo').textContent    = '$' + efectivo.toLocaleString('es-MX', { minimumFractionDigits: 2 });
+    document.getElementById('cuadre-recibos-val').textContent = '$' + totalVal.toLocaleString('es-MX', { minimumFractionDigits: 2 });
+    document.getElementById('cuadre-diff').textContent        = (diff >= 0 ? '+' : '') + diff.toLocaleString('es-MX', { minimumFractionDigits: 2 });
+    var box = document.getElementById('cuadre-diff-box');
+    box.className = 'cuadre-diff-box ' + (efectivo === 0 && totalVal === 0 ? 'neutral' : diff === 0 ? 'ok' : 'err');
+}
+
+// Toggle cuadre
+document.getElementById('cuadre-title').addEventListener('click', function() {
+    var cont = document.getElementById('cuadre-contenido');
+    var txt  = document.getElementById('cuadre-toggle-txt');
+    var vis  = cont.style.display !== 'none';
+    cont.style.display = vis ? 'none' : 'block';
+    txt.textContent    = vis ? '(clic para expandir)' : '(clic para colapsar)';
+});
+document.getElementById('btn-limpiar-cuadre').addEventListener('click', function() {
+    DENOMINACIONES.forEach(function(d) {
+        var inp = document.getElementById('denom-' + d);
+        if (inp) inp.value = 0;
+    });
+    actualizarCuadre();
+    inputLector.focus();
+});
+
+// ── SOLICITUDES ────────────────────────────────────────────────────────
 function crearSolicitud(key, periodoNombre) {
     var item = historial[key];
     if (!item) return;
-    var yaExiste = Object.values(solicitudes).find(function(s) { return s.key === key && s.estado === 'pendiente'; });
-    if (yaExiste) { mostrarNotif('Ya hay una solicitud pendiente para este recibo.', 'warning'); return; }
-    var nuevoRef = push(ref(db, 'solicitudes'));
-    set(nuevoRef, {
-        id: nuevoRef.key, key: key, usuario: usuarioActual.user,
-        periodoNombre: periodoNombre, noServicio: item.codigo.substring(2,14),
-        monto: item.monto, fecha: new Date().toLocaleDateString('es-MX'), estado: 'pendiente'
-    });
+    var ya = Object.values(solicitudes).find(function(s) { return s.key === key && s.estado === 'pendiente'; });
+    if (ya) { mostrarNotif('Ya existe una solicitud pendiente para este recibo.', 'warning'); return; }
+    var nr = push(ref(db, 'solicitudes'));
+    set(nr, { id: nr.key, key: key, usuario: usuarioActual.user, periodoNombre: periodoNombre,
+        noServicio: item.codigo.substring(2,14), monto: item.monto,
+        fecha: new Date().toLocaleDateString('es-MX'), estado: 'pendiente' });
     mostrarNotif('✎ Solicitud enviada al administrador.', 'warning');
 }
 
 function renderSolicitudes() {
-    var cont = document.getElementById('lista-solicitudes');
+    var cont  = document.getElementById('lista-solicitudes');
     var lista = Object.entries(solicitudes);
-    var pendientes = lista.filter(function(e){ return e[1].estado === 'pendiente'; });
-    document.getElementById('sol-count-badge').textContent = pendientes.length > 0 ? '(' + pendientes.length + ')' : '';
-
+    var pend  = lista.filter(function(e) { return e[1].estado === 'pendiente'; });
+    document.getElementById('sol-count-badge').textContent = pend.length > 0 ? '(' + pend.length + ')' : '';
     if (lista.length === 0) { cont.innerHTML = '<p style="color:#aaa;text-align:center;font-size:13px;">Sin solicitudes</p>'; return; }
     cont.innerHTML = '';
     lista.reverse().forEach(function(entry) {
-        var sk  = entry[0];
-        var sol = entry[1];
+        var sk = entry[0], sol = entry[1];
         var div = document.createElement('div');
         div.className = 'solicitud-row';
         div.innerHTML = '<div class="sol-info"><strong>' + sol.usuario + '</strong> solicita eliminar recibo de <strong>' + sol.periodoNombre + '</strong><br>' +
-            'No. Servicio: <code>' + sol.noServicio + '</code> — $' + sol.monto.toFixed(2) + ' MXN<br>' +
+            'No. Serv: <code>' + sol.noServicio + '</code> — $' + sol.monto.toFixed(2) + ' MXN<br>' +
             '<span style="font-size:11px;color:#aaa;">' + sol.fecha + ' — ' + sol.estado + '</span></div>';
         if (sol.estado === 'pendiente') {
             div.innerHTML += '<div class="sol-btns">' +
@@ -572,11 +745,9 @@ function renderSolicitudes() {
     });
     cont.querySelectorAll('.btn-aprobar').forEach(function(btn) {
         btn.addEventListener('click', function() {
-            var sk = btn.getAttribute('data-sk');
-            var k  = btn.getAttribute('data-key');
-            remove(ref(db, 'historial/' + k));
-            update(ref(db, 'solicitudes/' + sk), { estado: 'aprobada' });
-            mostrarNotif('✅ Solicitud aprobada — recibo eliminado.', 'success');
+            remove(ref(db, 'historial/' + btn.getAttribute('data-key')));
+            update(ref(db, 'solicitudes/' + btn.getAttribute('data-sk')), { estado: 'aprobada' });
+            mostrarNotif('✅ Solicitud aprobada.', 'success');
         });
     });
     cont.querySelectorAll('.btn-rechazar').forEach(function(btn) {
@@ -587,37 +758,36 @@ function renderSolicitudes() {
     });
 }
 
-// ── EXPORTAR ──────────────────────────────────────────────────────────
+// ── EXPORTAR ───────────────────────────────────────────────────────────
 document.getElementById('btn-export').addEventListener('click', function() {
     var lista = Object.values(historial);
     if (lista.length === 0) { mostrarNotif('No hay datos para exportar.', 'error'); return; }
-    var csv = '\uFEFF#,Período,Usuario,Fecha y Hora,No. Servicio,Monto (MXN)\n';
+    var csv = '\uFEFF#,Período,Usuario,Fecha y Hora,No. Servicio,Monto (MXN),Validación,Validado por\n';
     lista.forEach(function(item, idx) {
         var per = Object.values(periodos).find(function(p) { return p.id === item.periodoId; });
-        csv += (idx+1) + ',"' + (per ? per.nombre : '') + '",' + item.usuario +
-               ',"' + item.fecha + '",' + item.codigo.substring(2,14) + ',' + item.monto + '\n';
+        csv += (idx+1) + ',"' + (per ? per.nombre : '') + '",' + item.usuario + ',"' + item.fecha + '",' +
+               item.codigo.substring(2,14) + ',' + item.monto + ',' + (item.validacion || 'pendiente') + ',' + (item.validadoPor || '') + '\n';
     });
     var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
     var url  = URL.createObjectURL(blob);
-    var a    = document.createElement('a');
-    a.href = url; a.download = 'reporte_cfe_' + new Date().toISOString().slice(0,10) + '.csv';
+    var a    = document.createElement('a'); a.href = url;
+    a.download = 'reporte_cfe_' + new Date().toISOString().slice(0,10) + '.csv';
     document.body.appendChild(a); a.click(); document.body.removeChild(a);
     URL.revokeObjectURL(url);
 });
 
-// ── LIMPIAR TODO ──────────────────────────────────────────────────────
+// ── LIMPIAR TODO ───────────────────────────────────────────────────────
 document.getElementById('btn-clear').addEventListener('click', function() {
     setTimeout(function() {
-        if (confirm('¿Borrar PERMANENTEMENTE todo el historial de todos los períodos?\nEsta acción no se puede deshacer.')) {
-            remove(ref(db, 'historial'));
-            remove(ref(db, 'solicitudes'));
-            mostrarNotif('🗑️ Historial borrado completamente.', 'error');
+        if (confirm('¿Borrar PERMANENTEMENTE todo el historial?')) {
+            remove(ref(db, 'historial')); remove(ref(db, 'solicitudes'));
+            mostrarNotif('🗑️ Historial borrado.', 'error');
         }
         inputLector.focus();
     }, 50);
 });
 
-// ── MODAL PERÍODOS ────────────────────────────────────────────────────
+// ── TABS ───────────────────────────────────────────────────────────────
 function mostrarTab(tab) {
     document.getElementById('tab-periodos').style.display    = tab === 'periodos'    ? 'block' : 'none';
     document.getElementById('tab-solicitudes').style.display = tab === 'solicitudes' ? 'block' : 'none';
@@ -628,30 +798,25 @@ function mostrarTab(tab) {
 }
 window.mostrarTab = mostrarTab;
 
+// ── MODAL PERÍODOS ─────────────────────────────────────────────────────
 document.getElementById('btn-periodos').addEventListener('click', function() {
     document.getElementById('modal-periodos').classList.add('activo');
-    mostrarTab('periodos');
-    renderListaPeriodos();
+    mostrarTab('periodos'); renderListaPeriodos();
 });
 ['btn-cerrar-periodos','btn-cerrar-sol'].forEach(function(id) {
     document.getElementById(id).addEventListener('click', function() {
-        document.getElementById('modal-periodos').classList.remove('activo');
-        inputLector.focus();
+        document.getElementById('modal-periodos').classList.remove('activo'); inputLector.focus();
     });
 });
-
 document.getElementById('btn-agregar-periodo').addEventListener('click', function() {
     var nombre = document.getElementById('np-nombre').value.trim();
     if (!nombre) { mostrarNotif('Escribe el nombre del período.', 'error'); return; }
     if (Object.values(periodos).find(function(p) { return p.nombre === nombre; })) {
-        mostrarNotif('Ya existe un período con ese nombre.', 'error'); return;
+        mostrarNotif('Ya existe ese período.', 'error'); return;
     }
-    // Cerrar todos los períodos abiertos
-    Object.entries(periodos).forEach(function(e) {
-        if (e[1].abierto) update(ref(db, 'periodos/' + e[0]), { abierto: false });
-    });
-    var nuevoRef = push(ref(db, 'periodos'));
-    set(nuevoRef, { id: nuevoRef.key, nombre: nombre, abierto: true });
+    Object.entries(periodos).forEach(function(e) { if (e[1].abierto) update(ref(db, 'periodos/' + e[0]), { abierto: false }); });
+    var nr = push(ref(db, 'periodos'));
+    set(nr, { id: nr.key, nombre: nombre, abierto: true });
     document.getElementById('np-nombre').value = '';
     mostrarNotif('✅ Período "' + nombre + '" creado y activo.', 'success');
 });
@@ -662,13 +827,10 @@ function renderListaPeriodos() {
     var lista = Object.entries(periodos);
     if (lista.length === 0) { cont.innerHTML = '<p style="color:#aaa;text-align:center;font-size:13px;">Sin períodos creados</p>'; return; }
     lista.reverse().forEach(function(entry) {
-        var pk  = entry[0];
-        var p   = entry[1];
+        var pk = entry[0], p = entry[1];
         var rec = Object.values(historial).filter(function(h) { return h.periodoId === p.id; }).length;
-        var div = document.createElement('div');
-        div.className = 'item-row';
-        div.innerHTML =
-            '<div class="item-row-info"><span>' + p.nombre + '</span> <small>' + rec + ' recibo(s)</small> ' +
+        var div = document.createElement('div'); div.className = 'item-row';
+        div.innerHTML = '<div class="item-row-info"><span>' + p.nombre + '</span> <small>' + rec + ' recibo(s)</small> ' +
             (p.abierto ? '<span class="badge-periodo-abierto">ACTIVO</span>' : '<span class="badge-periodo-cerrado">CERRADO</span>') +
             '</div><div class="item-row-btns">' +
             (!p.abierto ? '<button class="btn-activar-periodo" data-pk="' + pk + '">Abrir</button>' : '') +
@@ -676,12 +838,10 @@ function renderListaPeriodos() {
             '</div>';
         cont.appendChild(div);
     });
-
     cont.querySelectorAll('.btn-cerrar-periodo').forEach(function(btn) {
         btn.addEventListener('click', function() {
-            var pk = btn.getAttribute('data-pk');
-            var p  = periodos[pk];
-            if (p && confirm('¿Cerrar el período "' + p.nombre + '"?')) {
+            var pk = btn.getAttribute('data-pk'), p = periodos[pk];
+            if (p && confirm('¿Cerrar período "' + p.nombre + '"?')) {
                 update(ref(db, 'periodos/' + pk), { abierto: false });
                 mostrarNotif('Período cerrado.', 'warning');
             }
@@ -689,41 +849,30 @@ function renderListaPeriodos() {
     });
     cont.querySelectorAll('.btn-activar-periodo').forEach(function(btn) {
         btn.addEventListener('click', function() {
-            var pk = btn.getAttribute('data-pk');
-            var p  = periodos[pk];
-            if (p && confirm('¿Reabrir el período "' + p.nombre + '"? Se cerrará el actual.')) {
-                Object.entries(periodos).forEach(function(e) {
-                    if (e[1].abierto) update(ref(db, 'periodos/' + e[0]), { abierto: false });
-                });
+            var pk = btn.getAttribute('data-pk'), p = periodos[pk];
+            if (p && confirm('¿Reabrir período "' + p.nombre + '"?')) {
+                Object.entries(periodos).forEach(function(e) { if (e[1].abierto) update(ref(db, 'periodos/' + e[0]), { abierto: false }); });
                 update(ref(db, 'periodos/' + pk), { abierto: true });
-                mostrarNotif('Período "' + p.nombre + '" ahora está activo.', 'success');
+                mostrarNotif('Período "' + p.nombre + '" activo.', 'success');
             }
         });
     });
 }
 
-onValue(ref(db, 'periodos'),  function() { renderListaPeriodos(); });
-onValue(ref(db, 'historial'), function() { renderListaPeriodos(); });
-
-// ── MODAL USUARIOS ────────────────────────────────────────────────────
+// ── MODAL USUARIOS ─────────────────────────────────────────────────────
 document.getElementById('btn-usuarios').addEventListener('click', function() {
-    document.getElementById('modal-usuarios').classList.add('activo');
-    renderListaUsuarios();
+    document.getElementById('modal-usuarios').classList.add('activo'); renderListaUsuarios();
 });
 document.getElementById('btn-cerrar-users').addEventListener('click', function() {
-    document.getElementById('modal-usuarios').classList.remove('activo');
-    inputLector.focus();
+    document.getElementById('modal-usuarios').classList.remove('activo'); inputLector.focus();
 });
 document.getElementById('btn-agregar-user').addEventListener('click', function() {
     var u = document.getElementById('nu-user').value.trim();
     var p = document.getElementById('nu-pass').value.trim();
     if (!u || !p) { mostrarNotif('Completa usuario y contraseña.', 'error'); return; }
-    if (Object.values(usuarios).find(function(x) { return x.user === u; })) {
-        mostrarNotif('Ese usuario ya existe.', 'error'); return;
-    }
-    set(ref(db, 'usuarios/' + u), { user: u, pass: p, esAdmin: false });
-    document.getElementById('nu-user').value = '';
-    document.getElementById('nu-pass').value = '';
+    if (Object.values(usuarios).find(function(x) { return x.user === u; })) { mostrarNotif('Ese usuario ya existe.', 'error'); return; }
+    set(ref(db, 'usuarios/' + u), { user: u, pass: p, esAdmin: false, puedeValidar: false });
+    document.getElementById('nu-user').value = ''; document.getElementById('nu-pass').value = '';
     mostrarNotif('✅ Usuario "' + u + '" creado.', 'success');
     renderListaUsuarios();
 });
@@ -732,14 +881,26 @@ function renderListaUsuarios() {
     var cont = document.getElementById('lista-usuarios');
     cont.innerHTML = '';
     Object.entries(usuarios).forEach(function(entry) {
-        var u   = entry[1];
-        var div = document.createElement('div');
-        div.className = 'item-row';
-        div.innerHTML =
-            '<div class="item-row-info"><span>' + u.user + '</span>' +
-            (u.esAdmin ? '<small> (admin)</small>' : '') + '</div>' +
-            (!u.esAdmin ? '<button class="btn-del-item" data-user="' + u.user + '">✕</button>' : '');
+        var u = entry[1];
+        var div = document.createElement('div'); div.className = 'item-row';
+        div.innerHTML = '<div class="item-row-info"><span>' + u.user + '</span>' +
+            (u.esAdmin ? '<small> (admin)</small>' : '') +
+            (u.puedeValidar && !u.esAdmin ? ' <small style="color:#16a085;">(puede validar)</small>' : '') +
+            '</div><div class="item-row-btns">' +
+            (!u.esAdmin ? '<button class="btn-autorizar-val" data-user="' + u.user + '" data-val="' + (u.puedeValidar ? '1' : '0') + '">' +
+                (u.puedeValidar ? 'Quitar validar' : 'Autorizar validar') + '</button>' : '') +
+            (!u.esAdmin ? '<button class="btn-del-item" data-user="' + u.user + '">✕</button>' : '') +
+            '</div>';
         cont.appendChild(div);
+    });
+    cont.querySelectorAll('.btn-autorizar-val').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var nombre  = btn.getAttribute('data-user');
+            var actual  = btn.getAttribute('data-val') === '1';
+            update(ref(db, 'usuarios/' + nombre), { puedeValidar: !actual });
+            mostrarNotif((actual ? 'Permiso de validación removido a ' : 'Permiso de validación otorgado a ') + nombre, 'warning');
+            setTimeout(renderListaUsuarios, 500);
+        });
     });
     cont.querySelectorAll('.btn-del-item').forEach(function(btn) {
         btn.addEventListener('click', function() {
@@ -752,8 +913,9 @@ function renderListaUsuarios() {
         });
     });
 }
-
-onValue(ref(db, 'usuarios'), function() { if (document.getElementById('modal-usuarios').classList.contains('activo')) renderListaUsuarios(); });
+onValue(ref(db, 'usuarios'), function() {
+    if (document.getElementById('modal-usuarios').classList.contains('activo')) renderListaUsuarios();
+});
 
 </script>
 </body>
